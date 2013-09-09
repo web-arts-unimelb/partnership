@@ -1,0 +1,5 @@
+name = Partnership 
+description = Control how partnership site should work 
+
+package = University of Melbourne
+core = 7.x
