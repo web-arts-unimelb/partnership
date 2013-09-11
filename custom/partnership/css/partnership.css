@@ -1,0 +1,7 @@
+div.hierarchical-select select {
+	height: 25px !important;
+}
+
+.hierarchical-select-wrapper .nojs .help-text {
+	display: none !important;
+}

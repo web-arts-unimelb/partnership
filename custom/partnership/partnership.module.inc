@@ -1,11 +1,25 @@
 <?php
 
+
+// hook_init
+function partnership_init() {
+  drupal_add_css(drupal_get_path('module', 'partnership') . '/css/partnership.css');
+}
+
 // hook_form_alter
 function partnership_form_alter(&$form, &$form_state, $form_id) {
 	// When create new organisation
 	if( $form_id === 'organisation_node_form' && empty($form['nid']['#value']) ) {
 		$form['title']['#autocomplete_path'] = 'nodes/autocomplete';
 		$form['#validate'][] = '_unique_organisation_validator';	
+	}
+	elseif($form_id == 'user_login') {
+		$scripts = drupal_add_js();
+  	$script_path = drupal_get_path('module', 'partnership') . '/js/partnership.js';
+
+  	if(!isset($scripts[$script_path])) {
+    	drupal_add_js($script_path);
+  	}
 	}
 }
 
