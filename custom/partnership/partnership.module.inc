@@ -8,10 +8,13 @@ function partnership_init() {
 
 // hook_form_alter
 function partnership_form_alter(&$form, &$form_state, $form_id) {
-	// When create new organisation
-	if( $form_id === 'organisation_node_form' && empty($form['nid']['#value']) ) {
-		$form['title']['#autocomplete_path'] = 'nodes/autocomplete';
-		$form['#validate'][] = '_unique_organisation_validator';	
+	if($form_id === 'organisation_node_form') {
+		$form['title']['#autocomplete_path'] = 'nodes/org_autocomplete';		
+
+		// Create new node
+		if(empty($form['nid']['#value'])) {
+			$form['#validate'][] = '_unique_organisation_validator';
+		}		
 	}
 	elseif($form_id == 'user_login') {
 		$scripts = drupal_add_js();
@@ -25,9 +28,9 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 
 // hook_menu
 function partnership_menu() {
-  $items['nodes/autocomplete'] = array(
+  $items['nodes/org_autocomplete'] = array(
 		'title' => 'Autocomplete for node title',
-		'page callback' => '_nodes_autocomplete',
+		'page callback' => '_nodes_org_autocomplete',
     'access arguments' => array('create partnership content'),
 		'acccess callback' => TRUE, 
     'type' => MENU_CALLBACK
@@ -35,7 +38,12 @@ function partnership_menu() {
   return $items;
 }
 
-function _nodes_autocomplete($string = "") {
+
+// hook_preprocess_page
+function partnership_preprocess_page(&$variables) {
+}
+
+function _nodes_org_autocomplete($string = "") {
   $matches = array();
   $result = db_select('node', 'n')
     ->fields('n', array('nid', 'title'))

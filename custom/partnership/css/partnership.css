@@ -1,3 +1,11 @@
+/* Start fluid */
+table input.fluid {
+	width: 100% !important;
+}
+
+/* End fluid */
+
+/* Start hierarchical-select */
 div.hierarchical-select select {
 	height: 25px !important;
 }
@@ -5,3 +13,5 @@ div.hierarchical-select select {
 .hierarchical-select-wrapper .nojs .help-text {
 	display: none !important;
 }
+/* End hierarchical-select */
+
