@@ -1,1 +1,5 @@
-contrib/*
+database
+drushrc.php
+files
+private
+settings.php

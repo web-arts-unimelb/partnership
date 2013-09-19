@@ -16,13 +16,10 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 			$form['#validate'][] = '_unique_organisation_validator';
 		}		
 	}
+	if($form_id == 'views_exposed_form') {
+	}
 	elseif($form_id == 'user_login') {
-		$scripts = drupal_add_js();
-  	$script_path = drupal_get_path('module', 'partnership') . '/js/partnership.js';
-
-  	if(!isset($scripts[$script_path])) {
-    	drupal_add_js($script_path);
-  	}
+		_add_javascript();
 	}
 }
 
@@ -38,9 +35,22 @@ function partnership_menu() {
   return $items;
 }
 
-
-// hook_preprocess_page
-function partnership_preprocess_page(&$variables) {
+/**
+ * Implements hook_preprocess_status_messages().
+ *
+ * Remove the login warning message, anon users can only see the login form anyway.
+ */
+function partnership_preprocess_status_messages(&$vars) {
+  $messages = drupal_get_messages('error');
+  if (!empty($messages['error'])) {
+    $errors = $messages['error'];
+    foreach ($errors as $error) {
+      if ($error == t('Access denied. You may need to login below or register to access this page.')) {
+        continue;
+      }
+      drupal_set_message($error, 'error');
+    }
+  }
 }
 
 function _nodes_org_autocomplete($string = "") {
@@ -86,5 +96,15 @@ function _unique_organisation_validator($form, &$form_state) {
 		else {
 
 		}
+  }
+}
+
+
+function _add_javascript() {
+	$scripts = drupal_add_js();
+  $script_path = drupal_get_path('module', 'partnership') . '/js/partnership.js';
+
+  if(!isset($scripts[$script_path])) {
+		drupal_add_js($script_path);
   }
 }

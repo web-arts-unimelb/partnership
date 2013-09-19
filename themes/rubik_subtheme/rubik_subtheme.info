@@ -1,0 +1,8 @@
+name = rubik_subtheme
+description = Rubik subtheme 
+base theme = rubik
+package = Core
+core = 7.x
+engine = phptemplate
+
+
