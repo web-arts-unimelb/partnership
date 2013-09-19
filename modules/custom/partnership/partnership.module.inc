@@ -17,6 +17,7 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 		}		
 	}
 	if($form_id == 'views_exposed_form') {
+		_add_javascript();	
 	}
 	elseif($form_id == 'user_login') {
 		_add_javascript();
