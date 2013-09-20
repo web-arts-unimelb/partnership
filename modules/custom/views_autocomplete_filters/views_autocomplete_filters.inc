@@ -156,6 +156,7 @@ function views_autocomplete_filter($filter_name, $view_name, $display_name, $vie
   unset($view->row_index);
 
   if(empty($matches)) {
+		// Gary
 		global $user;
 
 		if(in_array('admin', $user->roles) or in_array('site admin', $user->roles)) {
@@ -168,8 +169,6 @@ function views_autocomplete_filter($filter_name, $view_name, $display_name, $vie
 		}
 
 		$matches[''] = decode_entities($text);
-
-    //$matches[''] = '<div class="reference-autocomplete">' . t('The %string return no results. Please try something else.', array('%string' => $string)) . '</div>';
   }
 
   return drupal_json_output($matches);
