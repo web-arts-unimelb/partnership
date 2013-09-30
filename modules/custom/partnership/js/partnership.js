@@ -8,19 +8,35 @@
 
 			});
 
-			// Reset button on view exposed filter
+			// Reset button on view exposed filter in find partner page.
 			// https://drupal.org/node/1264316
 			// form_alter is not working for it, not sure why
-			jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').once('reset_exposed_button_func', function(){
-				jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').prop('type', 'button');
-	      jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').on('click', function(){
+			var form_id = 'form#views-exposed-form-organisation-page-find-partner';
+			jQuery(form_id + ' input#edit-reset').once('reset_find_partner_func', function(){
+				jQuery(form_id + ' input#edit-reset').prop('type', 'button');
+	      jQuery(form_id + ' input#edit-reset').on('click', function(){
 					// Reset all value
-					jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-title').prop('value', '');
-					jQuery("form#views-exposed-form-organisation-page-find-partner option:selected").prop("selected", false);
+					jQuery(form_id + ' input#edit-title').prop('value', '');
+					jQuery(form_id + " option:selected").prop("selected", false);
 
-					jQuery("form#views-exposed-form-organisation-page-find-partner input#edit-submit-organisation").trigger('click');		
+					// Trigger click
+					jQuery(form_id + " input#edit-submit-organisation").trigger('click');		
     	  });
 			});
+
+
+			// Reset button on view exposed filter in find partner relationship page.
+			var form_id_1 = 'form#views-exposed-form-organisation-find-partner-relationship';
+			jQuery(form_id_1 + ' input#edit-reset').once('reset_find_partner_relation_func', function(){
+        jQuery(form_id_1 + ' input#edit-reset').prop('type', 'button');
+        jQuery(form_id_1 + ' input#edit-reset').on('click', function(){
+          // Reset all value
+          jQuery(form_id_1 + " option:selected").prop("selected", false);
+
+          // Trigger click
+          jQuery(form_id_1 + " input#edit-submit-organisation").trigger('click');
+        });
+      });
 		
 		}
   }
