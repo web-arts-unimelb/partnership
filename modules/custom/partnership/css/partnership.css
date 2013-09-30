@@ -1,3 +1,12 @@
+/* Start find partner, find partner relationship */
+#main-content > #content > .region-content > .pager {
+	/* There are 2 pagers, so hide one */
+	display:none;
+}
+
+/* End find partner, find partner relationship */
+
+
 /* Start find partner */
 .views-widget-filter-field_org_flag_tid	{
 	clear:left;	
