@@ -32,7 +32,9 @@
         jQuery(form_id_1 + ' input#edit-reset').on('click', function(){
           // Reset all value
           jQuery(form_id_1 + " option:selected").prop("selected", false);
-
+					jQuery(form_id_1 + " input#edit-combine").prop('value', '');
+					jQuery(form_id_1 + " input#edit-field-depar-name-tid").prop('value', '');	
+	
           // Trigger click
           jQuery(form_id_1 + " input#edit-submit-organisation").trigger('click');
         });
