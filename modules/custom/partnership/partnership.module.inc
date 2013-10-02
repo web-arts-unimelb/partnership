@@ -8,6 +8,7 @@ function partnership_init() {
 
 // hook_form_alter
 function partnership_form_alter(&$form, &$form_state, $form_id) {
+
 	if($form_id === 'organisation_node_form') {
 		$form['title']['#autocomplete_path'] = 'nodes/org_autocomplete';		
 
@@ -16,9 +17,21 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 			$form['#validate'][] = '_unique_organisation_validator';
 		}		
 	}
-	if($form_id == 'views_exposed_form') {
-		_add_javascript();	
+	elseif($form_id == 'views_exposed_form') {
+		_add_javascript();
 
+		if($form['#id'] === 'views-exposed-form-organisation-find-partner-relationship') {
+			$url = "";
+	
+			$form['buttons']['export_csv'] = array(
+      	'#type'  => 'link',
+				'#title' => t('Export'),
+				'#href' => $url,
+				'#attributes' => array(
+					'class' => array('mybutton', 'mybutton-left'),
+				),
+      );	
+		}
 	}
 	elseif($form_id == 'user_login') {
 		_add_javascript();

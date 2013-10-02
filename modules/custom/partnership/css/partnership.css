@@ -44,3 +44,30 @@ div.hierarchical-select select {
 }
 /* End hierarchical-select */
 
+
+.mybutton {	
+	margin-left: 10px;
+	margin-top: 1.6em;
+	margin-bottom: 0;
+	box-shadow: 0 1px 1px #DDDDDD;
+	
+	background: url("../images/buttons.png") no-repeat scroll -1px 50% #FFFFFF;
+  border-color: #DDDDDD #DDDDDD #CCCCCC;
+  border-style: solid;
+  border-width: 1px;
+  color: #333333;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 3px 10px;
+  text-align: center;
+	
+	font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+
+	outline: 0 none;
+	vertical-align: baseline;
+}
+
+.mybutton-left {
+	margin-left: 10px;
+}
