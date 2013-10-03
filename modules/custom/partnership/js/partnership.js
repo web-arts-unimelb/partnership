@@ -18,6 +18,8 @@
 					// Reset all value
 					jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-title').prop('value', '');
 					jQuery("form#views-exposed-form-organisation-page-find-partner option:selected").prop("selected", false);
+					jQuery("form#views-exposed-form-organisation-page-find-partner .form-type-bef-checkbox input").prop('checked', false);
+			
 
 					// Trigger click
 					jQuery("form#views-exposed-form-organisation-page-find-partner input#edit-submit-organisation").trigger('click');		

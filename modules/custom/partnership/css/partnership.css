@@ -103,7 +103,14 @@ div.hierarchical-select select {
 
 
 /* Start partner */
+#edit-field-org-flag-tid-wrapper .form-item-field-org-flag-tid {
+	border: 1px solid #ccc;
+	padding: 3px;
+}
 
+#edit-field-org-flag-tid-wrapper .form-type-bef-checkbox {
+	margin-top: -2px;
+}
 /* End partner */
 
 /* Start relationship */
