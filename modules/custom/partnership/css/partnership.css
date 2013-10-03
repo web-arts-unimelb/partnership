@@ -1,3 +1,14 @@
+/* Start global */
+.clear-left {
+	clear:left;
+}
+
+.display-inline {
+	display:inline;
+}
+/* End global */
+
+
 /* Start find partner, find partner relationship */
 #main-content > #content > .region-content > .pager {
 	/* There are 2 pagers, so hide one */
@@ -71,3 +82,31 @@ div.hierarchical-select select {
 .mybutton-left {
 	margin-left: 10px;
 }
+
+
+/* Start partner */
+.pane-content .view-organisation .views-field-field-profile-display-name {
+	margin-top: 5px;
+}
+
+.hr_style {
+	width: 100%;
+ 	border: 1px soilid #ccc;
+	display: block;
+}
+
+/* End partner */
+
+/* Start relationship */
+.my-page-title {
+	float: left;
+	font-size: 20px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	line-height: 30px;
+	min-height: 30px;
+	text-shadow: 0 1px 0 #FFFFFF;
+
+}
+
+/* End relationship */

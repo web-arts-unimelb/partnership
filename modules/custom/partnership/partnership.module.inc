@@ -38,6 +38,13 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 	}
 }
 
+// hook_views_pre_render(&$view)
+function partnership_views_pre_render(&$view) {
+
+	//dsm($view);
+
+}
+
 // hook_menu
 function partnership_menu() {
   $items['nodes/org_autocomplete'] = array(
