@@ -6,6 +6,10 @@
 .display-inline {
 	display:inline;
 }
+
+.my-margin-top {
+	margin-top: 10px;
+}
 /* End global */
 
 
