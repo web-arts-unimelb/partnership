@@ -10,6 +10,20 @@
 .my-margin-top {
 	margin-top: 10px;
 }
+
+.my-margin-top-1 {
+	margin-top: 15px;
+}
+
+.pane-content .view-organisation .views-label {
+	font-weight: bold;
+}
+
+.hr_style {
+  width: 100%;
+  border: 1px soilid #ccc;
+  display: block;
+}
 /* End global */
 
 
@@ -89,15 +103,6 @@ div.hierarchical-select select {
 
 
 /* Start partner */
-.pane-content .view-organisation .views-field-field-profile-display-name {
-	margin-top: 5px;
-}
-
-.hr_style {
-	width: 100%;
- 	border: 1px soilid #ccc;
-	display: block;
-}
 
 /* End partner */
 
@@ -111,6 +116,11 @@ div.hierarchical-select select {
 	min-height: 30px;
 	text-shadow: 0 1px 0 #FFFFFF;
 
+}
+
+.field-collection-item-field-par-external-department .field-label,
+.field-collection-item-field-par-internal-department .field-label {
+	float:left;
 }
 
 /* End relationship */
