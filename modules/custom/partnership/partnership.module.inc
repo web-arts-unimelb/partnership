@@ -40,9 +40,26 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 
 // hook_views_pre_render(&$view)
 function partnership_views_pre_render(&$view) {
+	global $user;
 
-	//dsm($view);
+	if(isset($view->current_display)) {
+		// On find partner relationship page
+		if($view->current_display === 'find_partner_relationship') {
+			$field_name = "nothing_1"; // Edit button
+			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+				unset($view->field[$field_name]); // Hide edit button
+			}
+		}
 
+		// On view partner page
+		if($view->current_display === 'partner_attachment') {
+      $field_name = "nothing_1"; // Edit button
+      if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field[$field_name]); // Hide edit button
+      }
+    }
+				
+	}		
 }
 
 // hook_menu
