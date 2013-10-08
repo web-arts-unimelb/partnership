@@ -24,6 +24,12 @@
   border: 1px soilid #ccc;
   display: block;
 }
+
+
+.ui-widget-content a {
+	/* Avoid jquery ui theme css override */
+	color: #008EB1;
+}
 /* End global */
 
 
@@ -110,6 +116,10 @@ div.hierarchical-select select {
 
 #edit-field-org-flag-tid-wrapper .form-type-bef-checkbox {
 	margin-top: -2px;
+}
+
+.primary-tabs li.first_and_last {
+  border-radius: 5px !important;
 }
 /* End partner */
 

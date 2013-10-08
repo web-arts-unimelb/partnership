@@ -92,6 +92,44 @@ function partnership_preprocess_status_messages(&$vars) {
   }
 }
 
+// hook_menu_local_tasks_alter(&$data, $router_item, $root_path)
+function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+	global $user;
+
+	if(in_array('admin', $user->roles) || in_array('site admin', $user->roles)) {
+		if(
+			isset($router_item['page_arguments'][0]->type) &&
+			$router_item['page_arguments'][0]->type == 'partnership' 
+		)
+		{
+			if(
+				isset($router_item['page_arguments'][0]->field_par_org['und'][0]['target_id']) 
+			)
+			{
+				$partner_id = $router_item['page_arguments'][0]->field_par_org['und'][0]['target_id'];
+				$url = 'node/'. $partner_id;
+			} else {
+				$url = 'node';
+			}
+
+  		$data['tabs'][0]['output'][] = array(
+    		'#theme' => 'menu_local_task',
+    		'#link' => array(
+     			'title' => t('View all'),
+     			'href' => $url,
+     			'localized_options' => array(
+       			'attributes' => array(
+         			'title' => t('View all relationships'),
+       			),
+     			),
+    		),
+  		);
+
+		}
+	}
+}
+
+
 function _nodes_org_autocomplete($string = "") {
   $matches = array();
   $result = db_select('node', 'n')
