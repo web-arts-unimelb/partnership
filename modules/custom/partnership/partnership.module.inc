@@ -167,7 +167,7 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
       $router_item['page_arguments'][0]->type == 'organisation'
 		) {
 			$nid = $router_item['page_arguments'][0]->nid;
-			$url = "partner-relationship-csv/$nid";
+			$url = "partner-relationship/$nid/file.csv";
 
 			// If content type == partner
 			$data['tabs'][0]['output'][] = array(

@@ -51,7 +51,7 @@
 					var deparment_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-depar-name-tid').prop('value');
 					var type_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-type-tid').val();
 
-					var url = '/find-partner-relationship-csv?' + 
+					var url = '/find-partner-relationship/file.csv?' + 
 						'combine=' + partner_search + '&' + 
 						'field_par_sector_tid=' + sector_search + '&' + 
 						'field_par_career_destination_tid=' + career_search + '&' + 
