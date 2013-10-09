@@ -54,6 +54,12 @@ form#views-exposed-form-organisation-find-partner-relationship .views-submit-but
 form#views-exposed-form-organisation-find-partner-relationship input#edit-combine {
   width: 1000px;
 }
+
+form#views-exposed-form-organisation-find-partner-relationship a#edit-export-csv {
+	/* Avoid .ui-widget-content a override */
+	color: #222222;
+}
+
 /* End find partner, find partner relationship */
 
 

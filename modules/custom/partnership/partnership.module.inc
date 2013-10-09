@@ -8,7 +8,6 @@ function partnership_init() {
 
 // hook_form_alter
 function partnership_form_alter(&$form, &$form_state, $form_id) {
-
 	if($form_id === 'organisation_node_form') {
 		$form['title']['#autocomplete_path'] = 'nodes/org_autocomplete';		
 
@@ -42,6 +41,9 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 function partnership_views_pre_render(&$view) {
 	global $user;
 
+	//test
+	//dsm($view);
+
 	if(isset($view->current_display)) {
 		// On find partner relationship page
 		if($view->current_display === 'find_partner_relationship') {
@@ -50,6 +52,28 @@ function partnership_views_pre_render(&$view) {
 				unset($view->field[$field_name]); // Hide edit button
 			}
 		}
+
+		// On view partner page
+    if($view->current_display === 'block_1') {
+			// add_relationship_button
+      $add_relationship_button = "nothing_1"; 
+      if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field[$add_relationship_button]); // Hide
+      }
+
+			$export_button = 'nothing_2'; 
+			if(	
+					!in_array('authenticated user', $user->roles) ||
+					in_array('admin', $user->roles) ||
+					in_array('site admin', $user->roles)
+				) 
+			{
+				unset($view->field[$export_button]); // Hide
+			}
+
+
+    }
+
 
 		// On view partner page
 		if($view->current_display === 'partner_attachment') {
@@ -97,14 +121,13 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 	global $user;
 
 	if(in_array('admin', $user->roles) || in_array('site admin', $user->roles)) {
+		// If content type == partnership
 		if(
 			isset($router_item['page_arguments'][0]->type) &&
 			$router_item['page_arguments'][0]->type == 'partnership' 
 		)
 		{
-			if(
-				isset($router_item['page_arguments'][0]->field_par_org['und'][0]['target_id']) 
-			)
+			if( isset($router_item['page_arguments'][0]->field_par_org['und'][0]['target_id']) )
 			{
 				$partner_id = $router_item['page_arguments'][0]->field_par_org['und'][0]['target_id'];
 				$url = 'node/'. $partner_id;
@@ -125,6 +148,28 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
     		),
   		);
 
+		}
+		elseif(
+			isset($router_item['page_arguments'][0]->type) &&
+      $router_item['page_arguments'][0]->type == 'organisation'
+		) {
+			$nid = $router_item['page_arguments'][0]->nid;
+			$url = "partner-relationship-csv/$nid";
+
+			// If content type == partner
+			$data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => array(
+          'title' => t('Export'),
+          'href' => $url,
+          'localized_options' => array(
+            'attributes' => array(
+              'title' => t('Export partner'),
+            ),
+          ),
+        ),
+      );
+	
 		}
 	}
 }
