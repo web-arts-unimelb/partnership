@@ -42,7 +42,12 @@ function partnership_views_pre_render(&$view) {
 	global $user;
 
 	//test
-	//dsm($view);
+	/*
+	echo "<pre>";
+	print_r($view);
+	echo "</pre>";
+	die;
+	*/
 
 	if(isset($view->current_display)) {
 		// On find partner relationship page
@@ -70,9 +75,17 @@ function partnership_views_pre_render(&$view) {
 			{
 				unset($view->field[$export_button]); // Hide
 			}
-
-
     }
+
+		// On export partner-relationship-csv page
+		if($view->current_display === 'views_data_export_2') {
+			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+				// Only admin & site admin can see partner's contact detail
+				unset($view->field['field_par_contact_name']);
+				unset($view->field['field_par_contact_email']);
+				unset($view->field['field_par_contact_phone']);
+			}
+		}
 
 
 		// On view partner page
