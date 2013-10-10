@@ -77,8 +77,19 @@ function partnership_views_pre_render(&$view) {
 			}
     }
 
+		// On view relationship page
+		if($view->current_display === 'block_2') {
+			// Only admin and site admin are able to see partner's detail
+			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+      	// Only admin & site admin can see partner's contact detail
+        unset($view->field['field_par_contact_name']);
+        unset($view->field['field_par_contact_email']);
+        unset($view->field['field_par_contact_phone']);
+			}
+		}
+
 		// On export partner-relationship-csv page
-		if($view->current_display === 'views_data_export_2') {
+		if($view->current_display === 'views_data_export_1' || $view->current_display === 'views_data_export_2') {
 			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
 				// Only admin & site admin can see partner's contact detail
 				unset($view->field['field_par_contact_name']);

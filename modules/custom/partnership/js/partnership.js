@@ -48,14 +48,14 @@
 					var partner_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-combine').prop('value');
 					var sector_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-sector-tid').val();
 					var career_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-career-destination-tid').val();
-					var deparment_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-depar-name-tid').prop('value');
+					var deparment_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-internal-department-tid').val();
 					var type_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-type-tid').val();
 
 					var url = '/find-partner-relationship/file.csv?' + 
 						'combine=' + partner_search + '&' + 
 						'field_par_sector_tid=' + sector_search + '&' + 
 						'field_par_career_destination_tid=' + career_search + '&' + 
-						'field_depar_name_tid=' + deparment_search + '&' +
+						'field_internal_department_tid=' + deparment_search + '&' +
 						'field_par_type_tid=' + type_search;				
 	
 					//console.log(url);
