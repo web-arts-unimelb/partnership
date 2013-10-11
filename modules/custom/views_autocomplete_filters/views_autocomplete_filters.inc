@@ -165,7 +165,7 @@ function views_autocomplete_filter($filter_name, $view_name, $display_name, $vie
 			$text = '<div class="reference-autocomplete">'. t('The partner is not listed. Do you want to %url ?', array('%url' => $url_output)). '</div>';
 		}
 		elseif(in_array('authenticated user', $user->roles)) {
-			$text = '<div class="reference-autocomplete">' . t('The partner is not listed. Email %email about a new partnership?', array('%email' => '<a href="mailto:martinma@unimelb.edu.au">Meredith Martin</a>')). '</div>';
+			$text = '<div class="reference-autocomplete">' . t('The partner is not listed. Email %email about a new partner?', array('%email' => '<a href="mailto:martinma@unimelb.edu.au">Meredith Martin</a>')). '</div>';
 		}
 
 		$matches[''] = decode_entities($text);
