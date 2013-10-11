@@ -11,9 +11,9 @@
 			// Reset button on view exposed filter on find partner page.
 			// https://drupal.org/node/1264316
 			// form_alter is not working for it, not sure why
-			jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').once('reset_find_partner_func', function(){
-				jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').prop('type', 'button');
-	      jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-reset').on('click', function(){
+			jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').once('reset_find_partner_func', function(){
+				jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').prop('href', '#');
+	      jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').on('click', function(){
 		
 					// Reset all value
 					jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-title').prop('value', '');
@@ -28,14 +28,14 @@
 
 
 			// Reset button on view exposed filter on find partner relationship page.
-			jQuery('form#views-exposed-form-organisation-find-partner-relationship input#edit-reset').once('reset_find_partner_relation_func', function(){
-        jQuery('form#views-exposed-form-organisation-find-partner-relationship input#edit-reset').prop('type', 'button');
-        jQuery('form#views-exposed-form-organisation-find-partner-relationship input#edit-reset').on('click', function(){
+			jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').once('reset_find_partner_relation_func', function(){
+				jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').prop('href', '#');
+        jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').on('click', function(){
           // Reset all value
           jQuery("form#views-exposed-form-organisation-find-partner-relationship option:selected").prop("selected", false);
-					jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-combine").prop('value', '');
-					jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-field-depar-name-tid").prop('value', '');	
-	
+          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-combine").prop('value', '');
+          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-field-depar-name-tid").prop('value', '');
+
           // Trigger click
           jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-submit-organisation").trigger('click');
         });
