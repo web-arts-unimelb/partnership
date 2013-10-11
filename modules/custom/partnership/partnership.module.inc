@@ -50,6 +50,14 @@ function partnership_views_pre_render(&$view) {
 	*/
 
 	if(isset($view->current_display)) {
+		// On find partner page
+    if($view->current_display === 'page_find_partner') {
+      $field_name = "nothing"; // Edit button
+      if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field[$field_name]); // Hide edit button
+      }
+    }
+
 		// On find partner relationship page
 		if($view->current_display === 'find_partner_relationship') {
 			$field_name = "nothing_1"; // Edit button
