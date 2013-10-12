@@ -55,7 +55,7 @@
 						'field_par_type_tid=' + type_search;				
 	
 					//console.log(url);
-					jQuery(form_id + ' #edit-export-csv').prop('href', url);
+					window.location = url;	
 				});
 			});
 
