@@ -11,26 +11,22 @@
 			// Reset button on view exposed filter on find partner page.
 			// https://drupal.org/node/1264316
 			// form_alter is not working for it, not sure why
-			jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').once('reset_find_partner_func', function(){
-				jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').prop('href', '#');
-	      jQuery('form#views-exposed-form-organisation-page-find-partner a#edit-my-reset').on('click', function(){
-		
-					// Reset all value
-					jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-title').prop('value', '');
-					jQuery("form#views-exposed-form-organisation-page-find-partner option:selected").prop("selected", false);
-					jQuery("form#views-exposed-form-organisation-page-find-partner .form-type-bef-checkbox input").prop('checked', false);
-			
-
-					// Trigger click
-					jQuery("form#views-exposed-form-organisation-page-find-partner input#edit-submit-organisation").trigger('click');		
-    	  });
-			});
+			jQuery('form#views-exposed-form-organisation-page-find-partner #edit-reset').once('reset_find_partner_func', function(){
+        jQuery('form#views-exposed-form-organisation-page-find-partner #edit-reset').on('click', function(){
+          // Reset all value
+          jQuery('form#views-exposed-form-organisation-page-find-partner input#edit-title').prop('value', '');
+          jQuery("form#views-exposed-form-organisation-page-find-partner option:selected").prop("selected", false);
+          jQuery("form#views-exposed-form-organisation-page-find-partner .form-type-bef-checkbox input").prop('checked', false);
+      
+          // Trigger click
+          jQuery("form#views-exposed-form-organisation-page-find-partner input#edit-submit-organisation").trigger('click');
+        });
+      });
 
 
 			// Reset button on view exposed filter on find partner relationship page.
-			jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').once('reset_find_partner_relation_func', function(){
-				jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').prop('href', '#');
-        jQuery('form#views-exposed-form-organisation-find-partner-relationship a#edit-my-reset').on('click', function(){
+			jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-reset').once('reset_find_partner_relation_func', function(){
+        jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-reset').on('click', function(){
           // Reset all value
           jQuery("form#views-exposed-form-organisation-find-partner-relationship option:selected").prop("selected", false);
           jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-combine").prop('value', '');

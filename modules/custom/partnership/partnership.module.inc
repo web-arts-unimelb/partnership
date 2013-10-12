@@ -20,14 +20,7 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 		_add_javascript();
 
 		if($form['#id'] === 'views-exposed-form-organisation-page-find-partner') {
-			$form['buttons']['my_reset'] = array(
-        '#type'  => 'link',
-        '#title' => t('Reset'),
-        '#href' => '',
-        '#attributes' => array(
-          'class' => array('mybutton', 'mybutton-left'),
-        ),
-      );
+
 		}
 
 		if($form['#id'] === 'views-exposed-form-organisation-find-partner-relationship') {
@@ -41,15 +34,6 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 					'class' => array('mybutton', 'mybutton-left'),
 				),
       );
-
-			$form['buttons']['my_reset'] = array(
-        '#type'  => 'link',
-        '#title' => t('Reset'),
-        '#href' => '',
-        '#attributes' => array(
-          'class' => array('mybutton', 'mybutton-left'),
-        ),
-      );	
 		}
 	}
 	elseif($form_id == 'user_login') {

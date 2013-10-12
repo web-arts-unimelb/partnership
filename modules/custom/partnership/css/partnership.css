@@ -71,6 +71,9 @@ form#views-exposed-form-organisation-page-find-partner .views-widget-filter-fiel
 form#views-exposed-form-organisation-page-find-partner input#edit-title {
 	width: 1000px;
 }
+
+form#views-exposed-form-organisation-page-find-partner .views-submit-button {
+}
 /* End find partner */
 
 /* Start fluid */
@@ -103,7 +106,7 @@ div.hierarchical-select select {
   color: #333333;
   cursor: pointer;
   font-weight: normal;
-  padding: 3px 10px;
+  padding: 2px 10px;
   text-align: center;
 	
 	font-family: Verdana,Arial,sans-serif;
@@ -114,7 +117,7 @@ div.hierarchical-select select {
 }
 
 .mybutton-left {
-	margin-left: 10px;
+	margin-left: 0px;
 }
 
 
