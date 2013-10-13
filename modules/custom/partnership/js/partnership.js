@@ -39,7 +39,7 @@
 
 			// Build a button
 			jQuery(document).ready(function() {
-      	jQuery('<div class="views-exposed-widget views-export-button"><input type="button" value="Export" name="op" id="edit-export-csv" class="mybutton mybutton-left form-submit export_find_partner_relation_func-processed"></div>').insertAfter('.views-submit-button');
+      	jQuery('<div class="views-exposed-widget views-export-button"><input type="button" value="Export" name="op" id="edit-export-csv" class="mybutton mybutton-left form-submit export_find_partner_relation_func-processed"></div>').insertAfter('form#views-exposed-form-organisation-find-partner-relationship .views-submit-button');
 
 				// Export csv button on find partner relationship page
         jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-export-csv').on('click', function(){
