@@ -24,6 +24,7 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 		}
 
 		if($form['#id'] === 'views-exposed-form-organisation-find-partner-relationship') {
+			/*
 			$form['buttons']['export_csv'] = array(
       	'#type'  => 'button', // It doesn't work as a button, it becomes submit
 				'#title' => t('Export'),
@@ -32,6 +33,7 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 					'class' => array('mybutton', 'mybutton-left'),
 				),
       );
+			*/
 		}
 	}
 	elseif($form_id == 'user_login') {
