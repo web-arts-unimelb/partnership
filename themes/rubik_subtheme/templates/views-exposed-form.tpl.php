@@ -69,7 +69,20 @@
       </div>
     <?php endif; ?>
     <div class="views-exposed-widget views-submit-button">
-			<?php $button = _build_new_button($button); ?>
+			<?php
+				// Export button
+				if(!empty($button)) {
+					$dom = new DOMDocument();
+    			$dom->loadHTML($button);
+
+    			$x = new DOMXPath($dom);
+    			$node = $x->query('//input[@id="edit-export-csv"]')->item(0);	
+
+					if(is_object($node)) {
+      			$button = '<input type="submit" id="edit-submit-organisation" name="" value="Search" class="form-submit" /><input class="mybutton mybutton-left form-submit" type="button" id="edit-export-csv" name="op" value="Export" />';
+    			}
+				}
+			?>
 
       <?php print $button; ?>
     </div>
@@ -83,21 +96,3 @@
     <?php endif; ?>
   </div>
 </div>
-
-
-<?php
-	function _build_new_button($html) {
-		$dom = new DOMDocument();
-		$dom->loadHTML($html);
-
-		$x = new DOMXPath($dom);
-		$node = $x->query('//input[@id="edit-export-csv"]')->item(0);
-
-		if(is_object($node)) {
-  		$html = '<input type="submit" id="edit-submit-organisation" name="" value="Search" class="form-submit" /><input class="mybutton mybutton-left form-submit" type="button" id="edit-export-csv" name="op" value="Export" />';	
-		}
-
-		return $html;
-	}
-
-?>
