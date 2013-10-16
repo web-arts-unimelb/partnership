@@ -196,7 +196,7 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 			$data['tabs'][0]['output'][] = array(
         '#theme' => 'menu_local_task',
         '#link' => array(
-          'title' => t('Export'),
+          'title' => t('CSV'),
           'href' => $url,
           'localized_options' => array(
             'attributes' => array(
@@ -205,7 +205,20 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
           ),
         ),
       );
-	
+
+			$url = "pdf/partner/$nid/partner.pdf";
+			$data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => array(
+          'title' => t('PDF'),
+          'href' => $url,
+          'localized_options' => array(
+            'attributes' => array(
+              'title' => t('Export partner'),
+            ),
+          ),
+        ),
+      );	
 		}
 	}
 }
