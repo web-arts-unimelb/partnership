@@ -153,4 +153,17 @@ div.hierarchical-select select {
 	float:left;
 }
 
+/* Next to each other */
+form#partnership-node-form #edit-field-par-initial {
+	margin-top: 5px;
+	display: inline-block;
+}
+
+/* Next to each other */
+form#partnership-node-form #edit-field-par-contact-name {
+	display: inline-block;
+  margin-left: 10px;
+	width: 75%;
+}
+
 /* End relationship */

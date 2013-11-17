@@ -58,7 +58,7 @@
           // Reset all value
           jQuery("form#views-exposed-form-organisation-find-partner-relationship option:selected").prop("selected", false);
           jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-combine").prop('value', '');
-          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-field-depar-name-tid").prop('value', '');
+          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-field-internal-department-tid").prop('value', '');
 
           // Trigger click
           jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-submit-organisation").trigger('click');

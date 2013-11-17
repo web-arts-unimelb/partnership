@@ -2,7 +2,12 @@ table {
 	border: 1px solid #ccc;
 }
 
-td, tr, th {
+th {
+  border: 1px solid #ccc;
+  padding: 10px
+}
+
+td {
 	border: 1px solid #ccc;
-	padding: 5px;
+	padding: 10px	
 }
