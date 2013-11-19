@@ -155,20 +155,20 @@ function views_autocomplete_filter($filter_name, $view_name, $display_name, $vie
   }
   unset($view->row_index);
 
-  if(empty($matches)) {
+  if (empty($matches)) {
 		// Gary
-		global $user;
+    global $user;
 
-		if(in_array('admin', $user->roles) or in_array('site admin', $user->roles)) {
-			$url = 'node/add/partnership';
-			$url_output = l(t('add a new partner'), $url);
-			$text = '<div class="reference-autocomplete">'. t('The partner is not listed. Do you want to %url ?', array('%url' => $url_output)). '</div>';
-		}
-		elseif(in_array('authenticated user', $user->roles)) {
-			$text = '<div class="reference-autocomplete">' . t('The partner is not listed. Email %email about a new partner?', array('%email' => '<a href="mailto:martinma@unimelb.edu.au">Meredith Martin</a>')). '</div>';
-		}
+    if(in_array('admin', $user->roles) or in_array('site admin', $user->roles)) {
+      $url = 'node/add/partnership';
+      $url_output = l(t('add a new partner'), $url);
+      $text = '<div class="reference-autocomplete">'. t('The partner is not listed. Do you want to %url ?', array('%url' => $url_output)). '</div>';
+    }
+    elseif(in_array('authenticated user', $user->roles)) {
+      $text = '<div class="reference-autocomplete">' . t('The partner is not listed. Email %email about a new partner?', array('%email' => '<a href="mailto:martinma@unimelb.edu.au">Meredith Martin</a>')). '</div>';
+    }
 
-		$matches[''] = decode_entities($text);
+    $matches[''] = decode_entities($text);
   }
 
   return drupal_json_output($matches);

@@ -29,6 +29,9 @@
   display: block;
 }
 
+.hide {
+	display: none;
+}
 
 .ui-widget-content a {
 	/* Avoid jquery ui theme css override */

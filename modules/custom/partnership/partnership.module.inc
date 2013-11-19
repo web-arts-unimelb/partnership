@@ -16,7 +16,10 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 			$form['#validate'][] = '_unique_organisation_validator';
 		}		
 	}
-	elseif($form_id == 'views_exposed_form') {
+	elseif($form_id === 'partnership_node_form') {
+		$form['field_par_contact_full_name']['#attributes']['class'][] = 'hide';
+	}
+	elseif($form_id === 'views_exposed_form') {
 		_add_javascript();
 
 		if($form['#id'] === 'views-exposed-form-organisation-page-find-partner') {
@@ -220,6 +223,16 @@ function partnership_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         ),
       );	
 		}
+	}
+}
+
+function partnership_node_presave($node) {
+	if($node->type == 'partnership') {
+		$first_name = $node->field_par_contact_first_name['und'][0]['value'];
+		$surname = $node->field_par_contact_surname['und'][0]['value'];
+
+		$full_name = $first_name. " ". $surname;
+		$node->field_par_contact_full_name['und'][0]['value'] = $full_name;
 	}
 }
 
