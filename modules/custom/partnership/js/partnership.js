@@ -56,9 +56,8 @@
 			jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-reset').once('reset_find_partner_relation_func', function(){
         jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-reset').on('click', function(){
           // Reset all value
-          jQuery("form#views-exposed-form-organisation-find-partner-relationship option:selected").prop("selected", false);
-          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-combine").prop('value', '');
-          jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-field-internal-department-tid").prop('value', '');
+          jQuery("form#views-exposed-form-organisation-find-partner-relationship .views-widget option:selected").prop("selected", false);
+          jQuery("form#views-exposed-form-organisation-find-partner-relationship .views-widget input").prop('value', '');
 
           // Trigger click
           jQuery("form#views-exposed-form-organisation-find-partner-relationship input#edit-submit-organisation").trigger('click');
