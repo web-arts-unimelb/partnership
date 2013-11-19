@@ -8,6 +8,8 @@ function partnership_init() {
 
 // hook_form_alter
 function partnership_form_alter(&$form, &$form_state, $form_id) {
+	global $user;
+
 	if($form_id === 'organisation_node_form') {
 		$form['title']['#autocomplete_path'] = 'nodes/org_autocomplete';		
 
@@ -37,6 +39,13 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 				),
       );
 			*/
+
+			// Reset search by contact name
+			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {	
+				$fieldName = 'field_par_contact_full_name_value';
+				$info_key = 'filter-' . $fieldName;
+				unset($form[$fieldName], $form['#info'][$info_key], $form_state['view']->display_handler->options['filters'][$fieldName], $form_state['view']->display_handler->handlers['filter'][$fieldName], $form_state['view']->filter[$fieldName]);	
+			}
 		}
 	}
 	elseif($form_id == 'user_login') {
@@ -97,7 +106,8 @@ function partnership_views_pre_render(&$view) {
 			// Only admin and site admin are able to see partner's detail
 			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
       	// Only admin & site admin can see partner's contact detail
-        unset($view->field['field_par_contact_name']);
+        unset($view->field['field_par_contact_first_name']);
+				unset($view->field['field_par_contact_surname']);
         unset($view->field['field_par_contact_email']);
         unset($view->field['field_par_contact_phone']);
 			}
@@ -107,12 +117,12 @@ function partnership_views_pre_render(&$view) {
 		if($view->current_display === 'views_data_export_1' || $view->current_display === 'views_data_export_2') {
 			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
 				// Only admin & site admin can see partner's contact detail
-				unset($view->field['field_par_contact_name']);
+				unset($view->field['field_par_contact_first_name']);
+        unset($view->field['field_par_contact_surname']);
 				unset($view->field['field_par_contact_email']);
 				unset($view->field['field_par_contact_phone']);
 			}
 		}
-
 
 		// On view partner page
 		if($view->current_display === 'partner_attachment') {
