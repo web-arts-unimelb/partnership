@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function addressfield_myaddress_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'addressfield') {
+    return 'plugins/' . $plugin;
+  }
+}
+
