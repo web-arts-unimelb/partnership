@@ -18,17 +18,17 @@
         	// Export csv button on find partner relationship page
         	jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-export-csv').on('click', function(){
           	var partner_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-combine').prop('value');
-          	var sector_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-sector-tid').val();
           	var career_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-career-destination-tid').val();
           	var deparment_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-internal-department-tid').val();
           	var type_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-type-tid').val();
+						var partner_contact_full_name = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-contact-full-name-value').val();
 
           	var url = '/find-partner-relationship/file.csv?' +
             	'combine=' + partner_search + '&' +
-            	'field_par_sector_tid=' + sector_search + '&' +
             	'field_par_career_destination_tid=' + career_search + '&' +
             	'field_internal_department_tid=' + deparment_search + '&' +
-            	'field_par_type_tid=' + type_search;
+            	'field_par_type_tid=' + type_search + '&' + 
+							'field_par_contact_full_name_value=' + partner_contact_full_name;
 
           	//console.log(url);
           	window.location = url;
