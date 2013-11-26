@@ -57,14 +57,6 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 function partnership_views_pre_render(&$view) {
 	global $user;
 
-	//test
-	/*
-	echo "<pre>";
-	print_r($view);
-	echo "</pre>";
-	die;
-	*/
-
 	if(isset($view->current_display)) {
 		// On find partner page
     if($view->current_display === 'page_find_partner') {
@@ -72,6 +64,18 @@ function partnership_views_pre_render(&$view) {
         unset($view->field['nothing']); // Hide edit button
 				unset($view->field['nothing_1']); // Hide delete button
       }
+
+			// Add html tag to 'Restricted contact'
+			if(isset($view->result[0]->field_field_org_flag)) {
+        if(count($view->result[0]->field_field_org_flag) > 0) {
+          foreach($view->result[0]->field_field_org_flag as $key => &$item) {
+            if($item['rendered']['#markup'] == 'Restricted contact') {
+              $item['rendered']['#markup'] = '<span class="restricted-contact-flag">'. $item['rendered']['#markup']. '</span>';
+            }
+          }
+        }
+      }
+
     }
 
 		// On find partner relationship page
@@ -98,6 +102,18 @@ function partnership_views_pre_render(&$view) {
 				) 
 			{
 				unset($view->field[$export_button]); // Hide
+			}
+
+			// Add html tag to 'Restricted contact'
+			// It should have only 1 result
+			if(isset($view->result[0]->field_field_org_flag)) {
+				if(count($view->result[0]->field_field_org_flag) > 0) {
+					foreach($view->result[0]->field_field_org_flag as $key => &$item) {
+						if($item['rendered']['#markup'] == 'Restricted contact') {
+							$item['rendered']['#markup'] = '<span class="restricted-contact-flag">'. $item['rendered']['#markup']. '</span>';
+						}
+					}
+				}	
 			}
     }
 

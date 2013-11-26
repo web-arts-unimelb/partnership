@@ -5,4 +5,4 @@ package = Core
 core = 7.x
 engine = phptemplate
 
-
+scripts[] = js/rubik_subtheme.js

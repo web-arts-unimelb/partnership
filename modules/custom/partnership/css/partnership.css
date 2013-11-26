@@ -137,6 +137,10 @@ div.hierarchical-select select {
 .primary-tabs li.first_and_last {
   border-radius: 5px !important;
 }
+
+.restricted-contact-flag {
+	color: red;
+}
 /* End partner */
 
 /* Start relationship */
