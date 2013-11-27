@@ -23,6 +23,11 @@
           	var type_search = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-type-tid').val();
 						var partner_contact_full_name = jQuery('form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-contact-full-name-value').val();
 
+						// Normal user cannot search full partner contact name 
+						if(typeof(partner_contact_full_name) == 'undefined' || partner_contact_full_name == null) {
+							partner_contact_full_name = '';
+						}
+
           	var url = '/find-partner-relationship/file.csv?' +
             	'combine=' + partner_search + '&' +
             	'field_par_career_destination_tid=' + career_search + '&' +

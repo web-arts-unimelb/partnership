@@ -122,8 +122,7 @@ function partnership_views_pre_render(&$view) {
 			// Only admin and site admin are able to see partner's detail
 			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
       	// Only admin & site admin can see partner's contact detail
-        unset($view->field['field_par_contact_first_name']);
-				unset($view->field['field_par_contact_surname']);
+        unset($view->field['nothing_1']); // partner contact full name e.g. Dr pete rad
         unset($view->field['field_par_contact_email']);
         unset($view->field['field_par_contact_phone']);
 			}
@@ -133,8 +132,7 @@ function partnership_views_pre_render(&$view) {
 		if($view->current_display === 'views_data_export_1' || $view->current_display === 'views_data_export_2') {
 			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
 				// Only admin & site admin can see partner's contact detail
-				unset($view->field['field_par_contact_first_name']);
-        unset($view->field['field_par_contact_surname']);
+				unset($view->field['nothing']); // partner contact full name e.g. Dr pete rad
 				unset($view->field['field_par_contact_email']);
 				unset($view->field['field_par_contact_phone']);
 			}
