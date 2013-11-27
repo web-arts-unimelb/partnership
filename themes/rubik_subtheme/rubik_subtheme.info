@@ -5,4 +5,5 @@ package = Core
 core = 7.x
 engine = phptemplate
 
+scripts[] = js/jquery.waituntilexists.js
 scripts[] = js/rubik_subtheme.js
