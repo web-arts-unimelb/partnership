@@ -65,16 +65,20 @@ function partnership_views_pre_render(&$view) {
 				unset($view->field['nothing_1']); // Hide delete button
       }
 
-			// Add html tag to 'Restricted contact'
-			if(isset($view->result[0]->field_field_org_flag)) {
-        if(count($view->result[0]->field_field_org_flag) > 0) {
-          foreach($view->result[0]->field_field_org_flag as $key => &$item) {
-            if($item['rendered']['#markup'] == 'Restricted contact') {
-              $item['rendered']['#markup'] = '<span class="restricted-contact-flag">'. $item['rendered']['#markup']. '</span>';
-            }
-          }
-        }
-      }
+			// Loop through each entry
+			if(isset($view->result) && count($view->result) > 0) {
+				foreach($view->result as $entry) {
+					if(isset($entry->field_field_org_flag)) {
+						if(count($entry->field_field_org_flag) > 0) {
+          		foreach($entry->field_field_org_flag as $key => &$item) {
+            		if($item['rendered']['#markup'] == 'Restricted contact') {
+              		$item['rendered']['#markup'] = '<span class="restricted-contact-flag">'. $item['rendered']['#markup']. '</span>';
+            		}
+          		}
+        		}
+					}
+				}
+			}
 
     }
 
