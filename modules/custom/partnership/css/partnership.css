@@ -45,7 +45,10 @@
 	/* There are 2 pagers, so hide one */
 	display:none;
 }
+/* End find partner, find partner relationship */
 
+
+/* Start find partner relationship */
 form#views-exposed-form-organisation-find-partner-relationship .views-widget-filter-field_par_sector_tid {
 	clear:left;
 }
@@ -54,8 +57,8 @@ form#views-exposed-form-organisation-find-partner-relationship .views-submit-but
 	clear:left;
 }
 
-form#views-exposed-form-organisation-find-partner-relationship input#edit-combine {
-  width: 1000px;
+form#views-exposed-form-organisation-find-partner-relationship #edit-combine-wrapper {
+  width: 77%;
 }
 
 form#views-exposed-form-organisation-find-partner-relationship a#edit-export-csv {
@@ -63,7 +66,18 @@ form#views-exposed-form-organisation-find-partner-relationship a#edit-export-csv
 	color: #222222;
 }
 
-/* End find partner, find partner relationship */
+/* Set min-height for each filter  */
+form#views-exposed-form-organisation-find-partner-relationship #edit-combine-wrapper,
+form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-career-destination-tid-wrapper,
+form#views-exposed-form-organisation-find-partner-relationship #edit-field-internal-department-tid-wrapper,
+form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-type-tid-wrapper,
+form#views-exposed-form-organisation-find-partner-relationship #edit-field-par-contact-full-name-value-wrapper
+{
+	min-height: 50px;
+}
+
+
+/* End find partner relationship */
 
 
 /* Start find partner */
@@ -71,12 +85,17 @@ form#views-exposed-form-organisation-page-find-partner .views-widget-filter-fiel
 	clear:left;	
 }
 
-form#views-exposed-form-organisation-page-find-partner input#edit-title {
-	width: 1000px;
+form#views-exposed-form-organisation-page-find-partner #edit-title-wrapper {
+	width: 77%;
 }
 
 form#views-exposed-form-organisation-page-find-partner .views-submit-button {
 }
+
+form#views-exposed-form-organisation-page-find-partner #edit-field-org-flag-tid-wrapper a.bef-toggle {
+	display: none;
+} 
+
 /* End find partner */
 
 /* Start fluid */
