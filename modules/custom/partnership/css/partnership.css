@@ -193,3 +193,11 @@ form#partnership-node-form #edit-field-par-contact-name {
 }
 
 /* End relationship */
+
+
+/* Start view partner */
+.pane-content .views-field-field-org-address .postal-code {
+	margin-left: 5px;
+}
+
+/* End view partner */
