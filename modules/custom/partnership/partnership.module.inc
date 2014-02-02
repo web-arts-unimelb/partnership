@@ -144,10 +144,12 @@ function partnership_views_pre_render(&$view) {
 
 		// On view partner page
 		if($view->current_display === 'partner_attachment') {
-      if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
-        unset($view->field['nothing_1']); // Hide edit button
+      if(!in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
 				unset($view->field['nothing_2']); // Hide delete button
-      }
+      } else if(!in_array('admin', $user->roles) && !in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
+				unset($view->field['nothing_1']); // Hide edit button
+				unset($view->field['nothing_2']); // Hide delete button
+			}
     }
 				
 	}		
