@@ -19,6 +19,10 @@
 	margin-top: 15px;
 }
 
+.my-margin-bottom {
+	margin-bottom: 10px;
+}
+
 .pane-content .view-organisation .views-label {
 	font-weight: bold;
 }
