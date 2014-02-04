@@ -60,9 +60,12 @@ function partnership_views_pre_render(&$view) {
 	if(isset($view->current_display)) {
 		// On find partner page
     if($view->current_display === 'page_find_partner') {
-      if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
+			if(!in_array('admin', $user->roles) && !in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
         unset($view->field['nothing']); // Hide edit button
-				unset($view->field['nothing_1']); // Hide delete button
+      }
+
+      if(!in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field['nothing_1']); // Hide delete button
       }
 
 			// Loop through each entry
@@ -84,9 +87,12 @@ function partnership_views_pre_render(&$view) {
 
 		// On find partner relationship page
 		if($view->current_display === 'find_partner_relationship') {
-			if(!in_array('admin', $user->roles) && !in_array('site admin', $user->roles)) {
-				unset($view->field['nothing_1']); // Hide edit button
-				unset($view->field['nothing_2']); // Hide delete button
+      if(!in_array('admin', $user->roles) && !in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
+      	unset($view->field['nothing']); // Hide edit button
+			}
+
+			if(!in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field['nothing_1']); // Hide delete button
 			}
 		}
 
@@ -144,12 +150,13 @@ function partnership_views_pre_render(&$view) {
 
 		// On view partner page
 		if($view->current_display === 'partner_attachment') {
+			if(!in_array('admin', $user->roles) && !in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
+        unset($view->field['nothing_1']); // Hide edit button
+      }
+
       if(!in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
-				unset($view->field['nothing_2']); // Hide delete button
-      } else if(!in_array('admin', $user->roles) && !in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
-				unset($view->field['nothing_1']); // Hide edit button
-				unset($view->field['nothing_2']); // Hide delete button
-			}
+        unset($view->field['nothing_2']); // Hide delete button
+      }
     }
 				
 	}		
