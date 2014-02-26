@@ -92,7 +92,7 @@ function partnership_views_pre_render(&$view) {
 			}
 
 			if(!in_array('admin 1', $user->roles) && !in_array('site admin', $user->roles)) {
-        unset($view->field['nothing_1']); // Hide delete button
+        unset($view->field['nothing_2']); // Hide delete button
 			}
 		}
 
