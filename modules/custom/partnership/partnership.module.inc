@@ -291,6 +291,90 @@ function _nodes_org_autocomplete($string = "") {
   drupal_json_output($matches);
 }
 
+/**
+ * Implements hook_ldap_authentication_allowuser_results_alter().
+ */
+function partnership_ldap_authentication_allowuser_results_alter($ldap_user_entry, $name, &$result) {
+	if ($result === FALSE) { // other module has denied user, should not override
+  	return;
+  }
+  elseif ($result === TRUE) { // other module has allowed, maybe override
+ 		$ldap_dept_nums = _partnership_authentication_attribute_values($ldap_user_entry, 'uomdepartmentnumbers');
+  	$allowed_dept_nums = _partnership_allowed_department_nums();
+  	$ldap_match = array_intersect($ldap_dept_nums, $allowed_dept_nums);
+	
+		// White list
+		$while_list_array = _partnership_white_list();
+	
+		if(!empty($ldap_match)) {
+			// Normal ldap to allow people from arts
+    	$result = TRUE;
+  	}
+		elseif( in_array($name, $while_list_array) ) {
+			// White list, external to arts.
+			$result = TRUE;
+		}
+  	else {
+    	$result = FALSE;	
+  	} 
+  }
+
+}
+
+function _partnership_white_list() {
+	return array(
+		'acollette',
+		'fdickson',
+		'cstrong1',
+		'robbm',
+		'susannahm',
+		'lmckay1',
+		'rosssr1',
+	); 
+}
+
+function _partnership_allowed_department_nums() {
+  /*
+    100|Arts
+    110|Asia Institute
+    106|Culture and Communcation
+    131|Historical and Philosophical Studies
+    119|Languages and Linguistics
+    166|Social and Political Sciences
+    114|Unknown
+    151|Unknown
+  */
+
+  return array(
+    '100',
+    '110',
+    '106',
+    '131',
+    '119',
+    '166',
+    '114',
+    '151'
+  );
+}
+
+/**
+ * Return an array of attribute values from the ldap entry.
+ */
+function _partnership_authentication_attribute_values($entry, $attribute) {
+  $values = array();
+  if (!is_array($entry['attr'][$attribute])) {
+    return $values;
+  }
+
+  foreach ($entry['attr'][$attribute] as $key => $val) {
+    if (is_numeric($key)) {
+      $val = drupal_strtolower($val);
+      $values[$val] = $val;
+    }
+  }
+  return $values;
+}
+
 
 function _unique_organisation_validator($form, &$form_state) {
 	if($form_state['values']['title']) {
