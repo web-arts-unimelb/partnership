@@ -50,6 +50,11 @@ function partnership_form_alter(&$form, &$form_state, $form_id) {
 	}
 	elseif($form_id == 'user_login') {
 		_add_javascript();
+
+		drupal_set_title(t('Faculty of Arts Partnership Database'));
+
+		$form['name']['#title'] = t('University username');
+		$form['pass']['#title'] = t('University password');
 	}
 }
 
