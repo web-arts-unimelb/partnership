@@ -332,9 +332,11 @@ function _partnership_white_list() {
 		'fdickson',
 		'cstrong1',
 		'robbm',
+
 		'susannahm',
 		'lmckay1',
 		'rosssr1',
+		'martinma',
 	); 
 }
 

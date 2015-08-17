@@ -159,7 +159,8 @@ function views_autocomplete_filter($filter_name, $view_name, $display_name, $vie
 		// Gary
     global $user;
 
-    if(in_array('admin', $user->roles) or in_array('site admin', $user->roles)) {
+		// if(in_array('admin', $user->roles) or in_array('site admin', $user->roles)) {
+    if(in_array('site admin', $user->roles)) {
       $url = 'node/add/partnership';
       $url_output = l(t('add a new partner'), $url);
       $text = '<div class="reference-autocomplete">'. t('The partner is not listed. Do you want to %url ?', array('%url' => $url_output)). '</div>';
